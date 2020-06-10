@@ -1,35 +1,32 @@
-import 'package:FlutterWhatsApp/components/group/group_components.dart';
+import 'package:FlutterWhatsApp/components/chat/chat_components.dart';
 import 'package:FlutterWhatsApp/components/show_error.dart';
 import 'package:FlutterWhatsApp/components/show_loading.dart';
 import 'package:FlutterWhatsApp/db.dart' as db;
-import 'package:FlutterWhatsApp/models/group.dart';
+import 'package:FlutterWhatsApp/models/models.dart';
 import 'package:flutter/material.dart';
 
-class GroupPage extends StatelessWidget {
+class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Group group = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter WhatsApp'),
+        title: Text(group.name),
       ),
       body: StreamBuilder(
-        stream: db.getGroups(),
-        builder: (context, AsyncSnapshot<List<Group>> snapshot) {
+        stream: db.getGroupMessages(group.id),
+        builder: (context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasError) {
             return ShowError(snapshot.error);
           }
           if (!snapshot.hasData) {
             return Loading();
           }
-          List<Group> groups = snapshot.data;
-          return GroupList(groups: groups);
+          return MessageList(message: snapshot.data);
         },
       ),
     );
   }
 }
-
-
-
 
 

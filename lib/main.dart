@@ -1,4 +1,4 @@
-import 'package:FlutterWhatsApp/screens/group_page.dart';
+import 'package:FlutterWhatsApp/screens/screens.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(FlutterWhatsApp());
@@ -14,6 +14,7 @@ class FlutterWhatsApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => GroupPage(),
+        '/chat': (context) => ChatPage(),
       },
     );
   }
