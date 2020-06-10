@@ -24,14 +24,27 @@ class ChatPage extends StatelessWidget {
           if (!snapshot.hasData) {
             return Loading();
           }
-          return Column(
+          return Stack(
             children: [
-              Expanded(
-                child: MessageList(message: snapshot.data),
+              LayoutBuilder(
+                builder: (context, BoxConstraints constrains) {
+                  return Image.asset(
+                    'assets/chat_background.png',
+                    width: constrains.maxWidth,
+                    fit: BoxFit.cover,
+                  );
+                },
               ),
-              MessageBox(onSend: (text) {
-                db.sendMessage(group.id, Message(text));
-              }),
+              Column(
+                children: [
+                  Expanded(
+                    child: MessageList(message: snapshot.data),
+                  ),
+                  MessageBox(onSend: (text) {
+                    db.sendMessage(group.id, Message(text));
+                  }),
+                ],
+              ),
             ],
           );
         },
