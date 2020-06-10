@@ -18,6 +18,27 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB0y6JZChS-q3c0hBjttly0hesqzcgIIAk",
+      authDomain: "flutter-whatsapp-505a4.firebaseapp.com",
+      databaseURL: "https://flutter-whatsapp-505a4.firebaseio.com",
+      projectId: "flutter-whatsapp-505a4",
+      storageBucket: "flutter-whatsapp-505a4.appspot.com",
+      messagingSenderId: "535827338757",
+      appId: "1:535827338757:web:764959107106227d99ae6c",
+      measurementId: "G-4E2P99HVW1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.firestore();
+    firebase.analytics();
+  </script>
+        <!-- Other firebase SDKs/config here -->
+        <script src="main.dart.js"></script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -29,5 +50,6 @@
     }
   </script>
   <script src="main.dart.js" type="application/javascript"></script>
+  
 </body>
 </html>
