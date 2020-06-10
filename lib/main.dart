@@ -13,7 +13,7 @@ class FlutterWhatsApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => GroupPage(),
+        '/': (context) => GroupListPage(),
         '/chat': (context) => ChatPage(),
       },
     );

@@ -5,7 +5,7 @@ import 'package:FlutterWhatsApp/db.dart' as db;
 import 'package:FlutterWhatsApp/models/group.dart';
 import 'package:flutter/material.dart';
 
-class GroupPage extends StatelessWidget {
+class GroupListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
