@@ -35,18 +35,33 @@ class _MessageBoxState extends State<MessageBox> {
       child: Row(
         children: [
           Expanded(
+              child: Material(
+            elevation: 2,
+            shape: StadiumBorder(),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 17.0, right: 17.0),
               child: TextField(
-            controller: _controller,
-            onSubmitted: _send,
-          )),
-          IconButton(
-              icon: Icon(
-                Icons.send,
-                color: Colors.teal,
+                controller: _controller,
+                onSubmitted: _send,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                ),
               ),
-              onPressed: () {
-                _send(_controller.text);
-              }),
+            ),
+          )),
+          SizedBox(width: 8.0,),
+          Material(
+            color: Colors.teal,
+            shape: CircleBorder(),
+            child: IconButton(
+                icon: Icon(
+                  Icons.send,
+                  color: Theme.of(context).secondaryHeaderColor,
+                ),
+                onPressed: () {
+                  _send(_controller.text);
+                }),
+          ),
         ],
       ),
     );
