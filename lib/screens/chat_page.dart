@@ -22,7 +22,16 @@ class ChatPage extends StatelessWidget {
           if (!snapshot.hasData) {
             return Loading();
           }
-          return MessageList(message: snapshot.data);
+          return Column(
+            children: [
+              Expanded(
+                child: MessageList(message: snapshot.data),
+              ),
+              MessageBox(onSend: (text) {
+                print(text);
+              }),
+            ],
+          );
         },
       ),
     );
