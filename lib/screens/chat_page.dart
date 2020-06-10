@@ -18,6 +18,7 @@ class ChatPage extends StatelessWidget {
         stream: db.getGroupMessages(group.id),
         builder: (context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasError) {
+            print(snapshot.error);
             return ShowError(snapshot.error);
           }
           if (!snapshot.hasData) {
@@ -29,7 +30,7 @@ class ChatPage extends StatelessWidget {
                 child: MessageList(message: snapshot.data),
               ),
               MessageBox(onSend: (text) {
-                print(text);
+                db.sendMessage(group.id, Message(text));
               }),
             ],
           );

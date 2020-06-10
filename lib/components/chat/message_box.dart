@@ -49,7 +49,9 @@ class _MessageBoxState extends State<MessageBox> {
               ),
             ),
           )),
-          SizedBox(width: 8.0,),
+          SizedBox(
+            width: 8.0,
+          ),
           Material(
             color: Colors.teal,
             shape: CircleBorder(),
